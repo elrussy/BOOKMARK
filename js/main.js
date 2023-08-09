@@ -69,8 +69,9 @@ urlInput.onkeyup = function(){
 
 addBtn.onclick = function() {
     var bookMark = {
-        name : nameInput.value
-    }
+        name : nameInput.value,
+        url : urlInput.value,
+    } 
     bookMarks.push(bookMark);
     localStorage.setItem("bookMarks",JSON.stringify(bookMarks));
     displayBook();
@@ -79,7 +80,10 @@ addBtn.onclick = function() {
 }
 
 
+function geetVisit(index){
+ window.open(`https://${bookMarks[index].url}`)
 
+}
 
 function displayBook() {
 
@@ -91,7 +95,7 @@ function displayBook() {
     
    
     <td>
-        <button onclick="getVisit(${i})" class="btn btn-warning btn-sm">
+        <button onclick="geetVisit(${i})" class="btn btn-warning btn-sm">
         <i class="fa-solid fa-eye"></i>
         Visit</button>
     </td>
@@ -129,12 +133,15 @@ function cleardata() {
     urlInput.value = "";
 }
 
-function getVisit() { 
+// function getVisit(index) { 
 
-    bookMarks.push(index,1);
-    localStorage.setItem("bookMarks",JSON.stringify(bookMarks));
-    disabled(bookMarks);
-}
+//     // bookMarks.push(index,1);
+//     // localStorage.setItem("bookMarks",JSON.stringify(bookMarks));
+//     // disabled(bookMarks);
+//     // window.open(`https://${bookMarks[index].url}`)
+//     console.log("He;l;po");
+
+// }
 
 
 
